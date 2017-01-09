@@ -65,6 +65,7 @@
   <ItemGroup>
     <Compile Include="Computation\CbiHelper.cs" />
     <Compile Include="Computation\CciHelper.cs" />
+    <Compile Include="Computation\CEi.cs" />
     <Compile Include="Computation\CkiHelper.cs" />
     <Compile Include="Computation\CsiHelper.cs" />
     <Compile Include="Computation\Distribute.cs" />
