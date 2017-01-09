@@ -9,8 +9,9 @@ namespace Grace.Computation
 {
     public class CciHelper
     {
-        public static Dictionary<Int32, Double> Cci(List<City> cities, List<Shortest> shortest, Int32 N)
+        public static Dictionary<Int32, Double> Cci(List<City> cities, List<Shortest> shortest)
         {
+            var N = cities.Count;
             var ccis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {

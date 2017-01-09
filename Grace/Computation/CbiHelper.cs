@@ -25,8 +25,9 @@ namespace Grace.Computation
             }
         }
 
-        public static Dictionary<Int32, Double> CbiList(List<City> cities, Int32 N)
+        public static Dictionary<Int32, Double> CbiList(List<City> cities)
         {
+            var N = cities.Count;
             var cbis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {

@@ -9,8 +9,9 @@ namespace Grace.Computation
 {
     public class CkiHelper
     {
-        public static Dictionary<Int32, Double> CkiList(List<City> cities, Int32 N)
+        public static Dictionary<Int32, Double> CkiList(List<City> cities)
         {
+            var N = cities.Count;
             var ckis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {
