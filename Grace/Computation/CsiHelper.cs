@@ -7,15 +7,17 @@ using System.Threading.Tasks;
 
 namespace Grace.Computation
 {
-    public static class CsiHelper
+    public class CsiHelper
     {
-        public static Double Si(this City city)
+        public static Dictionary<Int32, Double> CsiList(List<City> cities, Double W)  //W 是所有点之间距离的加和
         {
-            return city.Distances.Values.Sum();
-        }
-        public static Double Csi(this City city, Double W)  //W 是所有点之间距离的加和
-        {
-            return city.Distances.Values.Sum() / W;
+            var csis = new Dictionary<Int32, Double>();
+            foreach (var city in cities)
+            {
+                var csi = city.Distances.Values.Sum() / W;
+                csis.Add(city.No, csi);
+            }
+            return csis;
         }
     }
 }

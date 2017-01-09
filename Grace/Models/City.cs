@@ -11,6 +11,6 @@ namespace Grace.Models
         public Int32 No { get; set; }
         public String Name { get; set; }
         public Dictionary<Int32, Double> Distances { get; set; } //距离
-        
+        public Int32 Bi { get; set; }
     }
 }

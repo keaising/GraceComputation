@@ -31,7 +31,7 @@ namespace Grace.Computation
             var sis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {
-                var si = (Int32)Math.Ceiling(city.Si());
+                var si = (Int32)Math.Ceiling(city.Distances.Values.Sum());
                 if (sis.Keys.Contains(si))
                 {
                     sis[si] += 1;

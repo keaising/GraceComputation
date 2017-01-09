@@ -7,16 +7,17 @@ using System.Threading.Tasks;
 
 namespace Grace.Computation
 {
-    public static class CkiHelper
+    public class CkiHelper
     {
-        public static Int32 ki(this City city)
+        public static Dictionary<Int32, Double> CkiList(List<City> cities, Int32 N)
         {
-            return city.Distances.Keys.Count;
-        }
-
-        public static Double Cki(this City city, Int32 N) //N:城市数量
-        {
-            return city.Distances.Keys.Count / (N - 1);
+            var ckis = new Dictionary<Int32, Double>();
+            foreach (var city in cities)
+            {
+                var cki = city.Distances.Keys.Count / (N - 1);
+                ckis.Add(city.No, cki);
+            }
+            return ckis;
         }
     }
 }
