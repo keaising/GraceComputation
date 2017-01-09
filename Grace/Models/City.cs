@@ -8,9 +8,9 @@ namespace Grace.Models
 {
     public class City
     {
-        public Int32 No_ { get; set; }
+        public Int32 No { get; set; }
         public String Name { get; set; }
-        public List<Int32> RelationCities { get; set; }
-        public Dictionary<Int32, Double> Distances { get; set; }
+        public Dictionary<Int32, Double> Distances { get; set; } //距离
+        
     }
 }

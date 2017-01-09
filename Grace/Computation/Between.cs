@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Console;
 
-
-namespace Grace
+namespace Grace.Computation
 {
-    class Program
+    public class Between
     {
-        static void Main(string[] args)
-        {
-
-        }
-
+        //public static List<Shortest> Short()
     }
 }

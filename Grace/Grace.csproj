@@ -63,8 +63,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Computation\Between.cs" />
+    <Compile Include="Computation\CkiHelper.cs" />
+    <Compile Include="Computation\CsiHelper.cs" />
+    <Compile Include="Computation\Distribute.cs" />
     <Compile Include="Helper\ImportExcel.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Shortest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -84,9 +89,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Computation\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
