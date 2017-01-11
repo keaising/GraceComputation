@@ -38,7 +38,7 @@ namespace Grace.Computation
                 }
             }
 
-            for (int i = 1; i <= cities.Count; i++)
+            Parallel.For(1, cities.Count, (i) =>
             {
                 foreach (var city in cities)
                 {
@@ -55,7 +55,28 @@ namespace Grace.Computation
                     }
                 }
                 Console.WriteLine($"————————————第 {i} 行数据——————————");
-            }
+            });
+
+            //for (int i = 1; i <= cities.Count; i++)
+            //{
+            //    foreach (var city in cities)
+            //    {
+            //        foreach (var relationCity in city.Distances)
+            //        {
+            //            var d1 = spot.GetShortest(city.No, relationCity.Key).Distance;
+            //            var d2 = spot.GetShortest(city.No, i).Distance;
+            //            var d3 = spot.GetShortest(i, relationCity.Key).Distance;
+            //            if (d1 > (d2 + d3))
+            //            {
+            //                spot.GetShortest(city.No, relationCity.Key).Distance = d2 + d3; // 如果存在更短路径则取更短路径
+            //                spot.GetShortest(city.No, relationCity.Key).NextCity = spot.GetShortest(city.No, i).NextCity;  // 把经过的点加入
+            //            }
+            //        }
+            //    }
+            //    Console.WriteLine($"————————————第 {i} 行数据——————————");
+            //}
+
+
 
             foreach (var sho in spot)
             {

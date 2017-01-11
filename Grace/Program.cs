@@ -124,7 +124,7 @@ namespace Grace
             var cities = Import.FromJson(jsonUri);
             var result = FLOYD.Short(cities);
             sw.Stop();
-            WriteLine($"导入数据用时{sw.ElapsedMilliseconds / 1000}秒");
+            WriteLine($"——————最短路计算用时 {sw.ElapsedMilliseconds} 毫秒");
             sw = new Stopwatch();
             sw.Start();
             using (StreamWriter file = new StreamWriter($"{Environment.CurrentDirectory}\\Data\\short.json", false))
