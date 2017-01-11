@@ -31,7 +31,7 @@ namespace Grace.Computation
             var cbis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {
-                var cbi = city.Bi * 2 / ((N - 1) * (N - 2));
+                double cbi = city.Bi * 2.0 / (Double)((N - 1) * (N - 2));
                 cbis.Add(city.No, cbi);
             }
             return cbis;

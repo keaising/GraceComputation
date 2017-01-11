@@ -21,8 +21,8 @@ namespace Grace.Computation
             var ccis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {
-                var ci = 1 / shortest.Where(s => s.StartCity == city.No).Select(s => s.Distance).Sum();
-                var cci = ci * (N - 1);
+                var ci = 1.0 / shortest.Where(s => s.StartCity == city.No).Select(s => s.Distance).Sum();
+                var cci = ci * (N - 1.0);
                 ccis.Add(city.No, cci);
             }
             return ccis;
@@ -40,8 +40,8 @@ namespace Grace.Computation
             var ccis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {
-                var ci = 1 / shortest.Where(s => s.StartCity == city.No).Select(s => s.InterCities.Count + 1).Sum();
-                var cci = ci * (N - 1);
+                double ci = 1.0 / shortest.Where(s => s.StartCity == city.No).Select(s => s.InterCities.Count + 1).Sum();
+                double cci = ci * (N - 1.0);
                 ccis.Add(city.No, cci);
             }
             return ccis;

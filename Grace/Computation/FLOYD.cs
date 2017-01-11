@@ -67,17 +67,17 @@ namespace Grace.Computation
                 {
                     foreach (var relationCity in city.Distances)
                     {
-
-                        if (spot.GetShortest(city.No, relationCity.Key).Distance >
-                            (spot.GetShortest(city.No, i).Distance + spot.GetShortest(i, relationCity.Key).Distance))
+                        var d1 = spot.GetShortest(city.No, relationCity.Key).Distance;
+                        var d2 = spot.GetShortest(city.No, i).Distance;
+                        var d3 = spot.GetShortest(i, relationCity.Key).Distance;
+                        if (d1 > (d2 + d3))
                         {
-                            spot.GetShortest(city.No, relationCity.Key).Distance =
-                                spot.GetShortest(city.No, i).Distance + spot.GetShortest(i, relationCity.Key).Distance; // 如果存在更短路径则取更短路径
+                            spot.GetShortest(city.No, relationCity.Key).Distance = d2 + d3; // 如果存在更短路径则取更短路径
                             spot.GetShortest(city.No, relationCity.Key).InterCities.Add(i);  // 把经过的点加入
                         }
                     }
                 }
-                Console.WriteLine($"————————————第 {i} 行数据——————————");
+                //Console.WriteLine($"————————————第 {i} 行数据——————————");
             }
             return spot;
         }

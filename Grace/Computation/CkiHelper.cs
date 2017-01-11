@@ -15,7 +15,9 @@ namespace Grace.Computation
             var ckis = new Dictionary<Int32, Double>();
             foreach (var city in cities)
             {
-                var cki = city.Distances.Keys.Count / (N - 1);
+                var cki = city.Distances.Where(d => d.Value > 0 && d.Value < 90000)
+                    .ToDictionary(d => d.Key, d => d.Value)
+                    .Keys.Count / (N - 1);
                 ckis.Add(city.No, cki);
             }
             return ckis;

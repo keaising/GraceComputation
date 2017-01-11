@@ -24,7 +24,8 @@ namespace Grace.Computation
                 var CEi2 = new Dictionary<Int32, Double>();
                 foreach (var city in cities)
                 {
-                    var newCEi = city.Distances.Sum(c => CEi1[c.Key] * c.Value);
+                    var newCEi = city.Distances.Where(c => c.Value > 0 && c.Value < 90000)
+                        .Sum(c => CEi1[c.Key] * c.Value);
                     CEi2.Add(city.No, newCEi);
                 }
                 lambda1 = lambda2;

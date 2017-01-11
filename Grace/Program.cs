@@ -12,12 +12,25 @@ using System.IO;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Grace.Computation;
+using NPOI.SS.UserModel;
+using NPOI.XSSF.UserModel;
 
 namespace Grace
 {
     class Program
     {
         static void Main(string[] args)
+        {
+
+
+
+            ReadKey();
+            ReadKey();
+            ReadKey();
+            ReadKey();
+        }
+
+        static void Test_Degree()
         {
             var sw = new Stopwatch();
             sw.Start();
@@ -82,11 +95,6 @@ namespace Grace
             {
                 file.WriteLine(JsonConvert.SerializeObject(Strings2));
             }
-
-            ReadKey();
-            ReadKey();
-            ReadKey();
-            ReadKey();
         }
 
         static void Test_Import()
