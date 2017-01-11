@@ -1,10 +1,17 @@
-﻿using System;
+﻿using Grace.Helper;
+using Grace.Models;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Console;
-
+using Excel = Microsoft.Office.Interop.Excel;
+using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Grace.Computation;
 
 namespace Grace
 {
@@ -12,11 +19,67 @@ namespace Grace
     {
         static void Main(string[] args)
         {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var jsonUri = @"C:\Users\Shuxiao\Desktop\json.json";
+            var cities = Import.FromJson(jsonUri);
+            var result = FLOYD.Short(cities);
+            sw.Stop();
+            WriteLine($"导入数据用时{sw.ElapsedMilliseconds / 1000}秒");
+            sw = new Stopwatch();
+            sw.Start();
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Shuxiao\Desktop\short.json", true))
+            {
+                var json = JsonConvert.SerializeObject(result);
+                file.WriteLine(json);
+            }
+            sw.Stop();
+            WriteLine($"序列化时间{sw.ElapsedMilliseconds}毫秒");
+            ReadKey();
+            ReadKey();
+            ReadKey();
+            ReadKey();
+            ReadKey();
+        }
 
+        static void Test_Import()
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            var fullUri = @"C:\Users\Shuxiao\Documents\visual studio 2015\Projects\Grace\Grace\bin\Debug\test2.xlsx";
+            var cities = Import.FromExcel(fullUri);
+            sw.Stop();
+            WriteLine($"导入数据用时{sw.ElapsedMilliseconds / 1000}秒");
+            sw = new Stopwatch();
+            sw.Start();
+            using (StreamWriter file = new StreamWriter(@"C:\Users\Shuxiao\Desktop\json.json", true))
+            {
+                var json = JsonConvert.SerializeObject(cities);
+                file.WriteLine(json);
+            }
+            sw.Stop();
+            WriteLine($"序列化和写入数据用时{sw.ElapsedMilliseconds}毫秒");
+            sw = new Stopwatch();
+            sw.Start();
+            var cities2 = new List<City>();
+            String reader = File.ReadAllText(@"C:\Users\Shuxiao\Desktop\json.json");
+            {
+                var res1 = JArray.Parse(reader);
+                var res2 = res1.Children();
+                var res3 = res2.ToList();
+                foreach (var item in res3)
+                {
+                    var city = JsonConvert.DeserializeObject<City>(item.ToString());
+                    cities2.Add(city);
+                }
+            }
+            sw.Stop();
+            WriteLine($"反序列化和读入数据用时{sw.ElapsedMilliseconds}毫秒");
         }
 
     }
 
+    #region FLYOD
     ////以无向图G为入口，得出任意两点之间的路径长度length[i][j]，路径path[i][j][k]，
     ////途中无连接得点距离用0表示，点自身也用0表示
     //public class FLOYD
@@ -79,4 +142,5 @@ namespace Grace
     //            outputPath(spot, spot[i][j], j, onePath, point);
     //        }
     //    }
-    }
+    #endregion
+}
