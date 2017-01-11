@@ -24,8 +24,8 @@ namespace Grace.Helper
             int rowCount = xlRange.Rows.Count;
             int colCount = xlRange.Columns.Count;
             #region mock
-            //rowCount = 10;
-            //colCount = 10;
+            rowCount = 10;
+            colCount = 10;
             #endregion
             for (int i = 2; i <= rowCount; i++)
             {

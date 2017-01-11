@@ -11,6 +11,7 @@ namespace Grace.Models
         public Int32 StartCity { get; set; }
         public Int32 EndCity { get; set; }
         public List<Int32> InterCities = new List<int>();
+        public Int32 NextCity { get; set; }
         public Double Distance { get; set; }
     }
 }
