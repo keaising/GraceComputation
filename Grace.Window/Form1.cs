@@ -164,7 +164,7 @@ namespace Grace.Window
                 {
                     foreach (var item2 in item.InterCities)
                     {
-                        cities2[item2].Bi += 1;
+                        cities2[item2 - 1].Bi += 1;
                     }
                 }
                 strings.Add($"城市 {item.StartCity} 与城市 {item.EndCity} 之间的最短路：{String.Join(",", item.InterCities)}");
