@@ -21,7 +21,7 @@ namespace Grace
     {
         static void Main(string[] args)
         {
-            Test_Import();
+            //Test_Import();
             Shortest();
 
             ReadKey();
@@ -103,8 +103,9 @@ namespace Grace
             sw.Start();
             var fullUri = string.Format($"{Environment.CurrentDirectory}\\Data\\test2.xlsx");
             var cities = Import.FromExcel(fullUri);
+            cities = cities.OrderBy(c => c.No).ToList();
             sw.Stop();
-            WriteLine($"导入数据用时{sw.ElapsedMilliseconds / 1000}秒");
+            WriteLine($"导入数据用时{sw.ElapsedMilliseconds / 1000} 秒");
             sw = new Stopwatch();
             sw.Start();
             using (StreamWriter file = new StreamWriter($"{Environment.CurrentDirectory}\\Data\\city.json", false))

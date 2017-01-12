@@ -24,10 +24,12 @@ namespace Grace.Helper
             int rowCount = xlRange.Rows.Count;
             int colCount = xlRange.Columns.Count;
             #region mock
-            rowCount = 40;
-            colCount = 40;
+            //rowCount = 40;
+            //colCount = 40;
             #endregion
-            for (int i = 2; i <= rowCount; i++)
+
+
+            Parallel.For(2, rowCount, (i) =>
             {
                 var city = new City();
                 for (int j = 1; j <= colCount; j++)
@@ -50,7 +52,32 @@ namespace Grace.Helper
                 }
                 //Console.WriteLine($"{city.Name} - {city.No} 处理完毕");
                 cities.Add(city);
-            }
+            });
+
+            //for (int i = 2; i <= rowCount; i++)
+            //{
+            //    var city = new City();
+            //    for (int j = 1; j <= colCount; j++)
+            //    {
+            //        if (j == 1)
+            //        {
+            //            city.Name = xlRange.Cells[i, j].Value2.ToString();
+            //            city.No = i - 1;
+            //        }
+            //        else
+            //        {
+            //            if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
+            //            {
+            //                var value = xlRange.Cells[i, j].Value2.ToString();
+            //                var value2 = Convert.ToDouble(value);
+            //                city.Distances.Add(j - 1, value2);
+            //            }
+
+            //        }
+            //    }
+            //    Console.WriteLine($"{city.Name} - {city.No} 处理完毕");
+            //    cities.Add(city);
+            //}
             #region release
             //cleanup
             GC.Collect();

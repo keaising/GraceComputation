@@ -47,8 +47,8 @@ namespace Grace.Window
             sw.Start();
             button2.Text = "需要12分钟";
             var fullUri = textBox1.Text;
-            textBox1.Text += string.Format(@"    现在时间是" + DateTime.Now);
-            textBox1.Text += string.Format(@"    预计完成时间：" + (DateTime.Now.AddMinutes(12)));
+            textBox1.Text += string.Format(@"    现在时间：" + DateTime.Now);
+            
             var cities = Import.FromExcel(fullUri);
             var newfile = string.Format(Application.StartupPath + "\\Data\\city.json");
             using (StreamWriter file = new StreamWriter(newfile, false))
@@ -57,7 +57,8 @@ namespace Grace.Window
                 file.WriteLine(json);
             }
             sw.Stop();
-            textBox1.Text += $"任务完成! 耗时{sw.ElapsedMilliseconds / 60000}分钟";
+            textBox1.Text += string.Format(@"    完成时间：" + (DateTime.Now));
+            MessageBox.Show($"任务完成! 耗时{sw.ElapsedMilliseconds / 1000} 秒");
         }
 
         private void button3_Click(Object sender, EventArgs e)
@@ -85,6 +86,7 @@ namespace Grace.Window
             Stopwatch sw = new Stopwatch();
             sw.Start();
             var jsonUri = textBox2.Text;
+            textBox2.Text += string.Format(@"    现在时间：" + DateTime.Now);
             var cities = Import.FromJson(jsonUri);
             var result = FLOYD.Short(cities);
             var newFile = string.Format(Application.StartupPath + "\\Data\\short.json");
@@ -94,7 +96,8 @@ namespace Grace.Window
                 file.WriteLine(json);
             }
             sw.Stop();
-            textBox2.Text += ($"总耗时：{sw.ElapsedMilliseconds / 60000} 分钟");
+            textBox2.Text += string.Format(@"    完成时间：" + DateTime.Now);
+            MessageBox.Show($"总耗时：{sw.ElapsedMilliseconds / 1000} 秒");
         }
 
         private void button5_Click(Object sender, EventArgs e)
@@ -424,6 +427,7 @@ namespace Grace.Window
             }
             var Ckis = CkiHelper.CkiList(cities2);
             var count = 1;
+            Ckis = Ckis.OrderBy(c => c.Key).ToDictionary(c => c.Key, c => c.Value);
             foreach (var item in Ckis)
             {
                 IRow row = sheet1.CreateRow(count);
@@ -467,7 +471,6 @@ namespace Grace.Window
                     cities2.Add(city);
                 }
             }
-
             foreach (var item in shorts)
             {
                 if (item.InterCities.Count > 0)
@@ -486,6 +489,7 @@ namespace Grace.Window
             row0.CreateCell(1).SetCellValue("城市编号");
             row0.CreateCell(2).SetCellValue("介数");
             var count = 1;
+            cities2.OrderBy(c => c.No);
             foreach (var item in cities2)
             {
                 IRow row = sheet1.CreateRow(count);
@@ -608,5 +612,17 @@ namespace Grace.Window
             sw.Close();
             var dia = MessageBox.Show($"【Cci】完成！文件在{newFile}");
         }
+
+        /// <summary>
+        /// 一键导入城市和计算最短路
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void button15_Click(Object sender, EventArgs e)
+        {
+            var time = await AsyncHelper.Compute();
+            MessageBox.Show($"任务完成! 耗时{time} 秒");
+        }
+
     }
 }

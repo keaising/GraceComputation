@@ -30,32 +30,33 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.button10 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
             this.button18 = new System.Windows.Forms.Button();
+            this.button17 = new System.Windows.Forms.Button();
+            this.button16 = new System.Windows.Forms.Button();
+            this.button14 = new System.Windows.Forms.Button();
+            this.button13 = new System.Windows.Forms.Button();
+            this.button12 = new System.Windows.Forms.Button();
+            this.button11 = new System.Windows.Forms.Button();
+            this.button15 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -84,6 +85,14 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "从Excel导入数据";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(20, 90);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(294, 109);
+            this.textBox1.TabIndex = 5;
             // 
             // label2
             // 
@@ -136,6 +145,15 @@
             this.textBox2.Size = new System.Drawing.Size(357, 109);
             this.textBox2.TabIndex = 2;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(31, 62);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(89, 12);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "选择的文件是：";
+            // 
             // button4
             // 
             this.button4.Location = new System.Drawing.Point(315, 25);
@@ -145,6 +163,16 @@
             this.button4.Text = "开始计算";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button8
+            // 
+            this.button8.Location = new System.Drawing.Point(185, 25);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(94, 23);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "你给我选";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button3
             // 
@@ -171,6 +199,42 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "计算城市介数";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(20, 246);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(277, 54);
+            this.textBox4.TabIndex = 6;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(20, 166);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(277, 54);
+            this.textBox3.TabIndex = 5;
+            // 
+            // button10
+            // 
+            this.button10.Location = new System.Drawing.Point(177, 86);
+            this.button10.Name = "button10";
+            this.button10.Size = new System.Drawing.Size(91, 23);
+            this.button10.TabIndex = 4;
+            this.button10.Text = "这个也不想选";
+            this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
+            // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(22, 86);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(104, 23);
+            this.button9.TabIndex = 3;
+            this.button9.Text = "人家懒，不想选";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button7
             // 
@@ -202,69 +266,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(20, 90);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(294, 109);
-            this.textBox1.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 62);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 12);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "选择的文件是：";
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(185, 25);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(94, 23);
-            this.button8.TabIndex = 0;
-            this.button8.Text = "你给我选";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // button9
-            // 
-            this.button9.Location = new System.Drawing.Point(22, 86);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(104, 23);
-            this.button9.TabIndex = 3;
-            this.button9.Text = "人家懒，不想选";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(177, 86);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(91, 23);
-            this.button10.TabIndex = 4;
-            this.button10.Text = "这个也不想选";
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(20, 166);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(277, 54);
-            this.textBox3.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(20, 246);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(277, 54);
-            this.textBox4.TabIndex = 6;
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button18);
@@ -281,38 +282,35 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Cxi";
             // 
-            // button11
+            // button18
             // 
-            this.button11.Location = new System.Drawing.Point(33, 36);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(163, 23);
-            this.button11.TabIndex = 0;
-            this.button11.Text = "输出度分布：degree.xlsx";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.button18.Location = new System.Drawing.Point(241, 126);
+            this.button18.Name = "button18";
+            this.button18.Size = new System.Drawing.Size(165, 23);
+            this.button18.TabIndex = 7;
+            this.button18.Text = "输出Ei: ei.xlsx";
+            this.button18.UseVisualStyleBackColor = true;
+            this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
-            // button12
+            // button17
             // 
-            this.button12.Location = new System.Drawing.Point(33, 86);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(163, 23);
-            this.button12.TabIndex = 1;
-            this.button12.Text = "输出强度分布：strong.xls";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.button17.Location = new System.Drawing.Point(241, 86);
+            this.button17.Name = "button17";
+            this.button17.Size = new System.Drawing.Size(165, 23);
+            this.button17.TabIndex = 6;
+            this.button17.Text = "输出ci：ci.xlsx";
+            this.button17.UseVisualStyleBackColor = true;
+            this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
-            // button13
+            // button16
             // 
-            this.button13.Location = new System.Drawing.Point(33, 126);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(163, 23);
-            this.button13.TabIndex = 2;
-            this.button13.Text = "输出边权分布：edge.xlsx";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.button16.Location = new System.Drawing.Point(241, 36);
+            this.button16.Name = "button16";
+            this.button16.Size = new System.Drawing.Size(165, 23);
+            this.button16.TabIndex = 5;
+            this.button16.Text = "输出bi：bi.xlsx";
+            this.button16.UseVisualStyleBackColor = true;
+            this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
             // button14
             // 
@@ -325,41 +323,55 @@
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
-            // button16
+            // button13
             // 
-            this.button16.Location = new System.Drawing.Point(241, 36);
-            this.button16.Name = "button16";
-            this.button16.Size = new System.Drawing.Size(165, 23);
-            this.button16.TabIndex = 5;
-            this.button16.Text = "输出bi：bi.xlsx";
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.button13.Location = new System.Drawing.Point(33, 126);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(163, 23);
+            this.button13.TabIndex = 2;
+            this.button13.Text = "输出边权分布：edge.xlsx";
+            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // button17
+            // button12
             // 
-            this.button17.Location = new System.Drawing.Point(241, 86);
-            this.button17.Name = "button17";
-            this.button17.Size = new System.Drawing.Size(165, 23);
-            this.button17.TabIndex = 6;
-            this.button17.Text = "输出ci：ci.xlsx";
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.button12.Location = new System.Drawing.Point(33, 86);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(163, 23);
+            this.button12.TabIndex = 1;
+            this.button12.Text = "输出强度分布：strong.xls";
+            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button18
+            // button11
             // 
-            this.button18.Location = new System.Drawing.Point(241, 126);
-            this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(165, 23);
-            this.button18.TabIndex = 7;
-            this.button18.Text = "输出Ei: ei.xlsx";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.button11.Location = new System.Drawing.Point(33, 36);
+            this.button11.Name = "button11";
+            this.button11.Size = new System.Drawing.Size(163, 23);
+            this.button11.TabIndex = 0;
+            this.button11.Text = "输出度分布：degree.xlsx";
+            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
+            // 
+            // button15
+            // 
+            this.button15.Location = new System.Drawing.Point(297, 286);
+            this.button15.Name = "button15";
+            this.button15.Size = new System.Drawing.Size(218, 23);
+            this.button15.TabIndex = 5;
+            this.button15.Text = "一键导入城市和计算最短路";
+            this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 687);
+            this.Controls.Add(this.button15);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -407,6 +419,7 @@
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button button15;
     }
 }
 

@@ -12,7 +12,7 @@ namespace Grace.Computation
         public static List<Shortest> Short(List<City> cities)
         {
             var spot = new List<Shortest>();// 定义任意两点之间经过的点
-
+            Console.WriteLine("开始读入最短路数据");
             foreach (var city in cities)
             {
                 foreach (var relationCity in city.Distances)
@@ -36,8 +36,9 @@ namespace Grace.Computation
                     spot.Add(newShortest);
                     //}
                 }
+                //Console.WriteLine($"{city.No} - {city.Name}读入");
             }
-
+            Console.WriteLine($"开始计算最短路");
             Parallel.For(1, cities.Count, (i) =>
             {
                 foreach (var city in cities)
@@ -54,7 +55,7 @@ namespace Grace.Computation
                         }
                     }
                 }
-                Console.WriteLine($"————————————第 {i} 行数据——————————");
+                //Console.WriteLine($"————————————第 {i} 行数据——————————");
             });
 
             //for (int i = 1; i <= cities.Count; i++)
@@ -77,8 +78,8 @@ namespace Grace.Computation
             //}
 
 
-
-            foreach (var sho in spot)
+            Console.WriteLine("开始计算路径: ");
+            Parallel.ForEach(spot, sho =>
             {
                 var index = sho.StartCity;
                 while (index != sho.EndCity)
@@ -91,7 +92,8 @@ namespace Grace.Computation
                 {
                     sho.InterCities.Remove(sho.EndCity);
                 }
-            }
+                //Console.WriteLine($"{sho.StartCity} - {sho.EndCity} ");
+            });
             return spot;
         }
     }
@@ -103,11 +105,7 @@ namespace Grace.Computation
             var res = shorts.FirstOrDefault(s => s.StartCity == startCityNo && s.EndCity == endCityNo);
             if (res == null)
             {
-                //res = shorts.FirstOrDefault(s => s.StartCity == endCityNo && s.EndCity == startCityNo);
-                //if (res == null)
-                //{
                 throw new ArgumentNullException($"找不到这样的最短路，城市1：{startCityNo}，城市2：{endCityNo}。");
-                //}
             }
             return res;
         }
