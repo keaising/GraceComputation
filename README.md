@@ -8,8 +8,8 @@ I use the library Math.NET Numerics to compute some Matraix for Grace's essay.
 
 
 2. 数据导入导出
-+ 数据导入：从excle导入，使用的Microsoft.Office.Interop.Excel
-+ 数据导出：导出到json，使用的NewtonJson进行序列化，导出到excel，使用NPOI
+  + 数据导入：从excle导入，使用的Microsoft.Office.Interop.Excel
+  + 数据导出：导出到json，使用的NewtonJson进行序列化，导出到excel，使用NPOI
 
 3. 开发WindowsForm
 为了方便使用，提供一定的进度提示（其实我觉得控制台的命令就挺好用了。。。
