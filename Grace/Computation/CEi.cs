@@ -16,8 +16,10 @@ namespace Grace.Computation
             var stop = 0.001;
             var CEi1 = new Dictionary<Int32, Double>();
             var N = cities.Count;
+            cities = cities.OrderBy(c => c.No).ToList();
             cities.ForEach(c => CEi1.Add(c.No, 1));
 
+            var diff = cities.Where(c => c.No != (cities.LastIndexOf(c) + 1)).ToList();
 
             while (Math.Abs(lambda1 - lambda2) > stop)
             {

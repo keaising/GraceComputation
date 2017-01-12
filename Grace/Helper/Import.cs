@@ -29,7 +29,7 @@ namespace Grace.Helper
             #endregion
 
 
-            Parallel.For(2, rowCount, (i) =>
+            Parallel.For(2, rowCount + 1, (i) =>
             {
                 var city = new City();
                 for (int j = 1; j <= colCount; j++)

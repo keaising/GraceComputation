@@ -45,7 +45,7 @@ namespace Grace.Window
         {
             var sw = new Stopwatch();
             sw.Start();
-            button2.Text = "需要12分钟";
+            button2.Text = "需要1分多钟";
             var fullUri = textBox1.Text;
             textBox1.Text += string.Format(@"    现在时间：" + DateTime.Now);
             
@@ -53,6 +53,7 @@ namespace Grace.Window
             var newfile = string.Format(Application.StartupPath + "\\Data\\city.json");
             using (StreamWriter file = new StreamWriter(newfile, false))
             {
+                cities = cities.OrderBy(c => c.No).ToList();
                 var json = JsonConvert.SerializeObject(cities);
                 file.WriteLine(json);
             }
@@ -344,15 +345,10 @@ namespace Grace.Window
         private void button13_Click(Object sender, EventArgs e)
         {
             IWorkbook workbook = new XSSFWorkbook();
-            ISheet sheet1 = workbook.CreateSheet("Sheet1");
-            IRow row0 = sheet1.CreateRow(0);
-            row0.CreateCell(0).SetCellValue("城市名称");
-            row0.CreateCell(1).SetCellValue("城市编号");
-            row0.CreateCell(2).SetCellValue("Wij");
 
             var cities2 = new List<City>();
             var cityJson = textBox3.Text;
-            var wijs = new List<Double>();
+            var wijs = new Dictionary<Int32, Int32>();
             String reader2 = File.ReadAllText(cityJson);
             {
                 var result2 = JArray.Parse(reader2).Children().ToList();
@@ -360,38 +356,27 @@ namespace Grace.Window
                 {
                     var city = JsonConvert.DeserializeObject<City>(item.ToString());
                     cities2.Add(city);
-                    var Wij = city.Distances.Where(d => d.Value > 0 && d.Value < 90000).Sum(d => d.Value);
-                    IRow row = sheet1.CreateRow(city.No);
-                    row.CreateCell(0).SetCellValue(city.Name);
-                    row.CreateCell(1).SetCellValue(city.No);
-                    row.CreateCell(2).SetCellValue(Wij);
-                    wijs.Add(Wij);
+                    var distance = city.Distances.Where(d => d.Value > 0 && d.Value < 90000);
+                    foreach (var dis in distance)
+                    {
+                        var wij = (Int32)(Math.Ceiling(dis.Value));
+                        if (wijs.Keys.Contains(wij)) wijs[wij] += 1;
+                        else wijs.Add(wij, 1);
+                    }
                 }
             }
+            wijs = wijs.OrderBy(w => w.Key).ToDictionary(w => w.Key, w => w.Value);
 
             #region 计算次数
-            ISheet sheet2 = workbook.CreateSheet("Sheet2");
-            var row1Sheet2 = sheet2.CreateRow(0);
-            row1Sheet2.CreateCell(0).SetCellValue("Wij");
-            row1Sheet2.CreateCell(1).SetCellValue("次数");
-            var times = new Dictionary<Int32, Int32>();
+            ISheet sheet1 = workbook.CreateSheet("Wij");
+            var row1 = sheet1.CreateRow(0);
+            row1.CreateCell(0).SetCellValue("Wij");
+            row1.CreateCell(1).SetCellValue("次数");
+
+            var count = 1;
             foreach (var item in wijs)
             {
-                var ceil = (Int32)Math.Ceiling(item / 500); //如果输出参数不合适，调整这里
-                if (times.Keys.Contains(ceil))
-                {
-                    times[ceil] += 1;
-                }
-                else
-                {
-                    times.Add(ceil, 1);
-                }
-            }
-            times = times.OrderBy(t => t.Key).ToDictionary(t => t.Key, t => t.Value);
-            var count = 1;
-            foreach (var item in times)
-            {
-                IRow row = sheet2.CreateRow(count);
+                IRow row = sheet1.CreateRow(count);
                 row.CreateCell(0).SetCellValue(item.Key);
                 row.CreateCell(1).SetCellValue(item.Value);
                 count += 1;

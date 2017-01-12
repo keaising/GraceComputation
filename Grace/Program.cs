@@ -21,8 +21,18 @@ namespace Grace
     {
         static void Main(string[] args)
         {
-            //Test_Import();
-            Shortest();
+            var cities2 = new List<City>();
+            var cityJson = Environment.CurrentDirectory + "\\Data\\city.json";
+            String reader2 = File.ReadAllText(cityJson);
+            {
+                var result2 = JArray.Parse(reader2).Children().ToList();
+                foreach (var item in result2)
+                {
+                    var city = JsonConvert.DeserializeObject<City>(item.ToString());
+                    cities2.Add(city);
+                }
+            }
+            cities2 = cities2.OrderBy(c => c.No).ToList();
 
             ReadKey();
             ReadKey();

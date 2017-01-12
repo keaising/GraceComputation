@@ -288,7 +288,7 @@
             this.button18.Name = "button18";
             this.button18.Size = new System.Drawing.Size(165, 23);
             this.button18.TabIndex = 7;
-            this.button18.Text = "输出Ei: ei.xlsx";
+            this.button18.Text = "输出Ei: Cei.xlsx";
             this.button18.UseVisualStyleBackColor = true;
             this.button18.Click += new System.EventHandler(this.button18_Click);
             // 
@@ -298,7 +298,7 @@
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(165, 23);
             this.button17.TabIndex = 6;
-            this.button17.Text = "输出ci：ci.xlsx";
+            this.button17.Text = "输出ci：Cci.xlsx";
             this.button17.UseVisualStyleBackColor = true;
             this.button17.Click += new System.EventHandler(this.button17_Click);
             // 
@@ -308,7 +308,7 @@
             this.button16.Name = "button16";
             this.button16.Size = new System.Drawing.Size(165, 23);
             this.button16.TabIndex = 5;
-            this.button16.Text = "输出bi：bi.xlsx";
+            this.button16.Text = "输出bi：Cbi.xlsx";
             this.button16.UseVisualStyleBackColor = true;
             this.button16.Click += new System.EventHandler(this.button16_Click);
             // 
@@ -318,7 +318,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(163, 23);
             this.button14.TabIndex = 3;
-            this.button14.Text = "输出ki：ki.xlsx";
+            this.button14.Text = "输出ki：Cki.xlsx";
             this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button14.UseVisualStyleBackColor = true;
             this.button14.Click += new System.EventHandler(this.button14_Click);
@@ -329,7 +329,7 @@
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(163, 23);
             this.button13.TabIndex = 2;
-            this.button13.Text = "输出边权分布：edge.xlsx";
+            this.button13.Text = "输出边权分布：Wij.xlsx";
             this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button13.UseVisualStyleBackColor = true;
             this.button13.Click += new System.EventHandler(this.button13_Click);
@@ -340,7 +340,7 @@
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(163, 23);
             this.button12.TabIndex = 1;
-            this.button12.Text = "输出强度分布：strong.xls";
+            this.button12.Text = "输出强度分布：Csi.xlsx";
             this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button12.UseVisualStyleBackColor = true;
             this.button12.Click += new System.EventHandler(this.button12_Click);
@@ -351,7 +351,7 @@
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(163, 23);
             this.button11.TabIndex = 0;
-            this.button11.Text = "输出度分布：degree.xlsx";
+            this.button11.Text = "输出度分布：度.xlsx";
             this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button11.UseVisualStyleBackColor = true;
             this.button11.Click += new System.EventHandler(this.button11_Click);
