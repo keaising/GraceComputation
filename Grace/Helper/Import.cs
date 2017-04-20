@@ -45,7 +45,10 @@ namespace Grace.Helper
                         {
                             var value = xlRange.Cells[i, j].Value2.ToString();
                             var value2 = Convert.ToDouble(value);
-                            city.Distances.Add(j - 1, value2);
+                            if (value2 < 99999)
+                            {
+                                city.Distances.Add(j - 1, value2);
+                            }
                         }
 
                     }
