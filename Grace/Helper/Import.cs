@@ -47,7 +47,7 @@ namespace Grace.Helper
                             var value2 = Convert.ToDouble(value);
                             if (value2 < 99999)
                             {
-                                city.Distances.Add(j - 1, value2);
+                                 city.Distances.Add(j - 1, value2);
                             }
                         }
 
